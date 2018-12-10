@@ -1,21 +1,3 @@
-/*!
-
- =========================================================
- * Now-ui-kit - v1.1.0
- =========================================================
-
- * Product Page: https://www.creative-tim.com/product/now-ui-kit
- * Copyright 2017 Creative Tim (http://www.creative-tim.com)
- * Licensed under MIT (https://github.com/creativetimofficial/now-ui-kit/blob/master/LICENSE.md)
-
- * Designed by www.invisionapp.com Coded by www.creative-tim.com
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
 var transparent = true;
 
 var transparentDemo = true;
@@ -26,10 +8,9 @@ var navbar_initialized,
     toggle_initialized = false;
 
 $(document).ready(function() {
-    //  Activate the Tooltips
+   
     $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
 
-    // Activate Popovers and set color for popovers
     $('[data-toggle="popover"]').each(function() {
         color_class = $(this).data('color');
         $(this).popover({
@@ -37,13 +18,11 @@ $(document).ready(function() {
         });
     });
 
-    // Activate the image for the navbar-collapse
     nowuiKit.initNavbarImage();
 
     $navbar = $('.navbar[color-on-scroll]');
     scroll_distance = $navbar.attr('color-on-scroll') || 500;
 
-    // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
 
     if ($('.navbar[color-on-scroll]').length != 0) {
         nowuiKit.checkScrollForTransparentNavbar();
@@ -56,7 +35,6 @@ $(document).ready(function() {
         $(this).parent(".input-group").removeClass("input-group-focus");
     });
 
-    // Activate bootstrapSwitch
     $('.bootstrap-switch').each(function() {
         $this = $(this);
         data_on_label = $this.data('on-label') || '';
@@ -73,8 +51,6 @@ $(document).ready(function() {
 
         $(window).on('scroll', nowuiKitDemo.checkScrollForParallax);
     }
-
-    // Activate Carousel
     $('.carousel').carousel({
         interval: 4000
     });
@@ -172,7 +148,6 @@ nowuiKit = {
     },
 
     initSliders: function() {
-        // Sliders for demo purpose in refine cards section
         var slider = document.getElementById('sliderRegular');
 
         noUiSlider.create(slider, {
@@ -200,7 +175,6 @@ nowuiKit = {
 
 var big_image;
 
-// Javascript just for Demo purpose, remove it from your project
 nowuiKitDemo = {
     checkScrollForParallax: debounce(function() {
         var current_scroll = $(this).scrollTop();
@@ -216,11 +190,6 @@ nowuiKitDemo = {
     }, 6)
 
 }
-
-// Returns a function, that, as long as it continues to be invoked, will not
-// be triggered. The function will be called after it stops being called for
-// N milliseconds. If `immediate` is passed, trigger the function on the
-// leading edge, instead of the trailing.
 
 function debounce(func, wait, immediate) {
     var timeout;
